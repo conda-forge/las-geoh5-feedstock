@@ -1,5 +1,7 @@
 {% set name = "las-geoh5" %}
 {% set version = "0.2.2" %}
+{% set python_min = 3.10 %}
+{% set python_max = 3.11 %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +14,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
   entry_points:
     - geoh5_to_las = las_geoh5.scripts.geoh5_to_las:main
     - las_to_geoh5 = las_geoh5.scripts.las_to_geoh5:main
@@ -20,12 +22,12 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.10.0,<3.11
+    - python >={{ python_min }},<{{ python_max }}
     - poetry-core >=1.0.0
     - setuptools
     - setuptools_scm
   run:
-    - python >=3.9.0,<3.11
+    - python >={{ python_min }},<{{ python_max }}
     - geoh5py >=0.9.0,<0.10.0
     - lasio >=0.31
     - numpy >=1.23.5,<1.24.0
@@ -39,6 +41,7 @@ test:
     - pip list
     - pip check
   requires:
+    - python >={{ python_min }},<{{ python_max }}
     - pip
 
 about:
