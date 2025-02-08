@@ -1,5 +1,5 @@
 {% set name = "las-geoh5" %}
-{% set version = "0.2.2" %}
+{% set version = "0.3.0" %}
 {% set python_min = "3.10" %}
 {% set python_max = "3.11" %}
 
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 1c20e6bb021516ef89de8551dc1f47f944bc98ea83d3da393d13e71469add43d
+  sha256: c5a8d61db1d4c1ad665fe434f132a377bb6ae47cf87d41dfde6d8eb9fd4055d4
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
   entry_points:
     - geoh5_to_las = las_geoh5.scripts.geoh5_to_las:main
     - las_to_geoh5 = las_geoh5.scripts.las_to_geoh5:main
