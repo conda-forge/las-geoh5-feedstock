@@ -17,7 +17,6 @@ Import/Export LAS files to/from geoh5 format.
 
 This package allows for import and export of LAS files to and from a drillhole group. There is a module each for import and export operations. Each of these includes a driver and a ui.json that parameterizes the driver and renders a UI for use within Geoscience ANALYST Pro. Read on to learn how to install las-geoh5 and get started importing and exporting LAS files.
 
-
 Current build status
 ====================
 
