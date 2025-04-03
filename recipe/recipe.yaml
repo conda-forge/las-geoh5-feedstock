@@ -40,16 +40,17 @@ requirements:
 
 tests:
   - python:
-      python_version: ${{ python_min }}.*
       imports:
         - las_geoh5
       pip_check: true
-  - requirements:
+  - script:
+      - pytest --ignore=tests/version_test.py
+    requirements:
       run:
-        - python ${{ python_min }}.*
-        - pip
-    script:
-      - pip list
+        - pytest
+    files:
+      source:
+        - tests/
 
 about:
   summary: Import/Export LAS files to/from geoh5 format.
