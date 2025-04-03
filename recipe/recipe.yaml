@@ -69,4 +69,5 @@ about:
 
 extra:
   recipe-maintainers:
+    - sebhmg
     - conda-forge/geoh5py
