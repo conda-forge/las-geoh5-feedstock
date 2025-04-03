@@ -25,8 +25,8 @@ build:
 
 requirements:
   host:
+    - python ${{ python_min }}.*
     - pip
-    - python 3.10.*
     - poetry-core >=1.0.0
     - setuptools
     - setuptools_scm
@@ -40,10 +40,10 @@ requirements:
 
 tests:
   - python:
+      python_version: ${{ python_min }}.*
       imports:
         - las_geoh5
       pip_check: true
-      python_version: ${{ python_min }}.*
   - requirements:
       run:
         - python ${{ python_min }}.*
