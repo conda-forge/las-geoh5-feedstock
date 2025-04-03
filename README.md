@@ -11,11 +11,13 @@ Summary: Import/Export LAS files to/from geoh5 format.
 
 Development: https://github.com/MiraGeoscience/las-geoh5
 
-Documentation: https://mirageoscience-las-geoh5.readthedocs-hosted.com/en/stable/
+Documentation: https://mirageoscience-las-geoh5.readthedocs-hosted.com/
 
 Import/Export LAS files to/from geoh5 format.
 
-This package allows for import and export of LAS files to and from a drillhole group. There is a module each for import and export operations. Each of these includes a driver and a ui.json that parameterizes the driver and renders a UI for use within Geoscience ANALYST Pro. Read on to learn how to install las-geoh5 and get started importing and exporting LAS files.
+This package allows for import and export of LAS files to and from a drillhole group.
+There is a module each for import and export operations. Each of these includes a driver and a ui.json 
+that parameterizes the driver and renders a UI for use within Geoscience ANALYST Pro.
 
 Current build status
 ====================
@@ -151,6 +153,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@SophieCurinier](https://github.com/SophieCurinier/)
-* [@sebhmg](https://github.com/sebhmg/)
+* [@conda-forge/geoh5py](https://github.com/orgs/conda-forge/teams/geoh5py/)
 
