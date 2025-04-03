@@ -64,7 +64,7 @@ about:
     - LICENSE
   homepage: https://www.mirageoscience.com/mining-industry-software/python-integration/
   repository: https://github.com/MiraGeoscience/las-geoh5
-  documentation: https://mirageoscience-las-geoh5.readthedocs-hosted.com/en/stable/
+  documentation: https://mirageoscience-las-geoh5.readthedocs-hosted.com/
 
 extra:
   recipe-maintainers:
