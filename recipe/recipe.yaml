@@ -14,7 +14,7 @@ source:
   sha256: c5a8d61db1d4c1ad665fe434f132a377bb6ae47cf87d41dfde6d8eb9fd4055d4
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -42,6 +42,9 @@ tests:
       python_version: ${{ python_min }}.*
       imports:
         - las_geoh5
+        # dependency imports
+        - geoh5py
+        - lasio
       pip_check: true
   - script:
       - pytest --ignore=tests/version_test.py
