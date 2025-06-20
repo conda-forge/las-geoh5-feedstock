@@ -2,8 +2,8 @@ schema_version: 1
 
 context:
   name: las-geoh5
-  version: 0.3.0
-  python_min: 3.10
+  version: "0.3.1"
+  python_min: '3.10'
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: c5a8d61db1d4c1ad665fe434f132a377bb6ae47cf87d41dfde6d8eb9fd4055d4
+  sha256: 81fda897e3afffccb528d0eee0ac1546e45bdd1d0449a40b274650a7f6232cb3
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -31,11 +31,13 @@ requirements:
     - setuptools_scm
   run:
     - python >=${{ python_min }}
-    - geoh5py >=0.10.0,<0.11.dev
-    - lasio >=0.31
-    - numpy >=1.26.0,<1.27.dev
-    - pydantic >=2.5.2,<2.6.dev
-    - tqdm >=4.66.1,<4.67.dev
+    # Mira packages
+    - geoh5py >=0.11.0, <0.12.dev
+    # direct dependencies
+    - lasio >=0.31, <0.32.dev
+    - numpy >=1.26.0, <1.27.dev
+    - pydantic >=2.5.2, <3.0.dev
+    - tqdm >=4.66.1, <5.0.dev
 
 tests:
   - python:
