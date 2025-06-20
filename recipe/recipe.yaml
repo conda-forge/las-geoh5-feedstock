@@ -31,11 +31,13 @@ requirements:
     - setuptools_scm
   run:
     - python >=${{ python_min }}
-    - geoh5py >=0.10.0,<0.11.dev
-    - lasio >=0.31
-    - numpy >=1.26.0,<1.27.dev
-    - pydantic >=2.5.2,<2.6.dev
-    - tqdm >=4.66.1,<4.67.dev
+    # Mira packages
+    - geoh5py >=0.11.0, <0.12.dev
+    # direct dependencies
+    - lasio >=0.31, <0.32.dev
+    - numpy >=1.26.0, <1.27.dev
+    - pydantic >=2.5.2, <3.0.dev
+    - tqdm >=4.66.1, <5.0.dev
 
 tests:
   - python:
