@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: las-geoh5
-  version: "0.3.1"
+  version: "0.3.2"
   python_min: '3.10'
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 81fda897e3afffccb528d0eee0ac1546e45bdd1d0449a40b274650a7f6232cb3
+  sha256: b417ccfe9c025ce0ac9590753204c86192948bef27852c81a0087bb02e151771
 
 build:
   number: 0
