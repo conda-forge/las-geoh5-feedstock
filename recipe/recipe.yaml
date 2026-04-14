@@ -2,8 +2,9 @@ schema_version: 1
 
 context:
   name: las-geoh5
-  version: "0.3.1"
+  version: "0.3.2"
   python_min: '3.10'
+  module_name: ${{ name|lower|replace("-", "_") }}
 
 package:
   name: ${{ name|lower }}
@@ -11,12 +12,14 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: 81fda897e3afffccb528d0eee0ac1546e45bdd1d0449a40b274650a7f6232cb3
+  sha256: b417ccfe9c025ce0ac9590753204c86192948bef27852c81a0087bb02e151771
 
 build:
   number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - export POETRY_DYNAMIC_VERSIONING_BYPASS=${{ version }}
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
     entry_points:
       - geoh5_to_las = las_geoh5.scripts.geoh5_to_las:main
@@ -26,24 +29,25 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - poetry-core >=1.0.0
+    - poetry-core >=1.8.0
+    - poetry-dynamic-versioning >=1.9, 1.*
     - setuptools
-    - setuptools_scm
   run:
     - python >=${{ python_min }}
     # Mira packages
-    - geoh5py >=0.11.0, <0.12.dev
+    - geoh5py 0.12.*
     # direct dependencies
-    - lasio >=0.31, <0.32.dev
-    - numpy >=1.26.0, <1.27.dev
-    - pydantic >=2.5.2, <3.0.dev
-    - tqdm >=4.66.1, <5.0.dev
+    - lasio 0.31.*
+    - numpy 1.26.*
+    - pydantic >=2.5.2, 2.*
+    - tqdm >=4.66.1, 4.*
 
 tests:
   - python:
       python_version: ${{ python_min }}.*
       imports:
-        - las_geoh5
+        - ${{ module_name }}
+        - ${{ module_name }}._version
         # dependency imports
         - geoh5py
         - lasio
@@ -56,6 +60,9 @@ tests:
     files:
       source:
         - tests/
+  - package_contents:
+      files:
+        - site-packages/${{ module_name }}/_version.py
 
 about:
   summary: Import/Export LAS files to/from geoh5 format.
@@ -68,6 +75,7 @@ about:
   license: MIT
   license_file:
     - LICENSE
+    - docs/source/THIRD_PARTY_SOFTWARE.rst
   homepage: https://www.mirageoscience.com/mining-industry-software/python-integration/
   repository: https://github.com/MiraGeoscience/las-geoh5
   documentation: https://mirageoscience-las-geoh5.readthedocs-hosted.com/
