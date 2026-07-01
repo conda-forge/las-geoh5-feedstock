@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: las-geoh5
-  version: "0.3.2"
+  version: "0.3.3"
   python_min: '3.10'
   module_name: ${{ name|lower|replace("-", "_") }}
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://github.com/MiraGeoscience/${{ name }}/archive/v${{ version }}.tar.gz
-  sha256: b417ccfe9c025ce0ac9590753204c86192948bef27852c81a0087bb02e151771
+  sha256: 6b33994a58e2658a95dbc4d06e5b9db364c7ca090d4dee01a9f767a5f1e6afc7
 
 build:
   number: 0
